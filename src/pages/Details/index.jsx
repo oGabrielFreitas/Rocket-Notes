@@ -5,7 +5,8 @@ import { Header } from '../../components/Header';
 import { Button } from '../../components/Button';
 import { ButtonText } from '../../components/ButtonText';
 import { Section } from '../../components/Section';
-import { Input } from '../../components/Input';
+// import { Input } from '../../components/Input';
+import { ReportsTable } from '../../components/ReportsTable';
 
 function Details() {
   return (
@@ -15,16 +16,10 @@ function Details() {
       <main>
         <Content>
           <Section title="Relatórios cadastrados">
-            <Input />
-
-            <ul>
-              <li>Item 1</li>
-              <li>Item 2</li>
-              <li>Item 3</li>
-            </ul>
+            <ReportsTable></ReportsTable>
           </Section>
 
-          <ButtonText title="Sair" onClick />
+          <ButtonText title="Sair" />
 
           <Button title="Voltar" />
         </Content>
