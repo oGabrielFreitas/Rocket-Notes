@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.button`
   width: 100%;
-  background-color: ${({ theme }) => theme.COLORS.ORANGE};
-  color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+  background-color: ${({ theme }) => theme.COLORS.PURPLE};
+  color: ${({ theme }) => theme.COLORS.OFF_WHITE};
 
-  height: 56px;
+  height: 46px;
   border: 0;
   padding: 0 16px;
   margin-top: 16px;

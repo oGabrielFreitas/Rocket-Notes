@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   *{
@@ -9,8 +9,8 @@ export default createGlobalStyle`
 
   body {
     // Maneira de acessar variáveis definidas em theme.js
-    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
-    color: ${({ theme }) => theme.COLORS.OFF_WHITE};
+    background-color: ${({ theme }) => theme.COLORS.OFF_WHITE};
+    color: ${({ theme }) => theme.COLORS.GRAY_TEXT};
 
     -webkit-font-smoothing: antialiased;
   }
