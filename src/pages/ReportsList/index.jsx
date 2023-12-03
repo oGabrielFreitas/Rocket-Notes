@@ -8,7 +8,7 @@ import { Section } from '../../components/Section';
 // import { Input } from '../../components/Input';
 import { ReportsTable } from '../../components/ReportsTable';
 
-function Details() {
+function ReportsList() {
   return (
     <Container>
       <Header />
@@ -28,4 +28,4 @@ function Details() {
   );
 }
 
-export { Details };
+export { ReportsList };

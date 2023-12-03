@@ -27,7 +27,8 @@ export function ReportsTable({ ...rest }) {
     {
       name: 'ID',
       selector: row => row.id,
-      maxWidth: '20px',
+      maxWidth: '100px',
+      center: true,
     },
     {
       name: 'Nome',
@@ -38,10 +39,11 @@ export function ReportsTable({ ...rest }) {
       name: 'Idade',
       selector: row => row.idade,
       sortable: true,
+      maxWidth: '100px',
     },
     {
-      name: 'Respostas',
-      selector: row => row.respostas_index,
+      name: 'Data Resposta',
+      selector: row => row.data_criacao,
       sortable: true,
     },
   ];

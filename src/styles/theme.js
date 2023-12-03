@@ -23,4 +23,8 @@ export default {
     GRAY_TEXT: '#333333',
     BLACK_APPLE: '#0D0D0D',
   },
+
+  SHADOW: {
+    LIGHT_SHADOW: 'rgba(0, 0, 0, 0.15) 0px 3px 10px -5px;',
+  },
 };
