@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { ReportsList } from './pages/ReportsList';
+// import { ReportsList } from './pages/ReportsList';
 import { ReportsDetails } from './pages/ReportDetails';
 
 import { ThemeProvider } from 'styled-components';
@@ -12,8 +12,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      {/* <ReportsDetails /> */}
-      <ReportsList />
+      <ReportsDetails />
+      {/* <ReportsList /> */}
     </ThemeProvider>
   </React.StrictMode>,
 );

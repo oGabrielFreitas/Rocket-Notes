@@ -37,7 +37,6 @@ export function ReportsTable({ data, ...rest }) {
         striped
         highlightOnHover
         fixedHeader
-        // fixedHeaderScrollHeight="50vh"
         pagination
       />
     </Container>

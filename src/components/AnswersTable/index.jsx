@@ -2,27 +2,36 @@ import { Container } from './styles';
 
 import DataTable from 'react-data-table-component';
 
-export function AnswersTable({ data, ...rest }) {
+export function AnswersTable({ data, pending, ...rest }) {
   // (TABELA RESPOSTAS) DEFINIÇÕES DO REACT-DATA-TABLE
   const columns = [
     {
       name: 'Categoria',
       selector: row => row.categoria,
-      maxWidth: '100px',
+      maxWidth: '120px',
+      sortable: 'true',
+      wrap: true,
     },
     {
       name: 'Pergunta',
       selector: row => row.pergunta,
+      // maxWidth: '50%',
+      wrap: true,
     },
     {
       name: 'Resposta',
       selector: row => row.resposta,
+      // maxWidth: '500px',
+      wrap: true,
     },
     {
       name: 'Pontuação',
       selector: row => row.pontuacao,
       right: true,
-      maxWidth: '100px',
+      // compact: 1,
+      maxWidth: '120px',
+      wrap: true,
+      sortable: 'true',
       conditionalCellStyles: [
         {
           when: row => row.index_reposta == 2,
@@ -69,7 +78,9 @@ export function AnswersTable({ data, ...rest }) {
         striped
         highlightOnHover
         fixedHeader
-        fixedHeaderScrollHeight="200px"
+        fixedHeaderScrollHeight="400px"
+        responsive
+        progressPending={pending}
       />
     </Container>
   );
