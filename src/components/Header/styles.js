@@ -2,14 +2,13 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-  grid-area: header;
+  /* grid-area: header; */
 
-  height: 105px;
+  height: 66px;
   width: 100%;
+  background-color: #fff;
 
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
+  box-shadow: ${({ theme }) => theme.SHADOW.LIGHTSHADOW};
 
   display: flex;
   justify-content: space-between;
@@ -23,8 +22,8 @@ export const Profile = styled.div`
   align-items: center;
 
   > img {
-    width: 56px;
-    height: 50px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
   }
 
@@ -32,7 +31,7 @@ export const Profile = styled.div`
     display: flex;
     flex-direction: column;
     margin-left: 16px;
-    line-height: 24px;
+    line-height: 18px;
 
     span {
       font-size: 14px;
@@ -40,8 +39,9 @@ export const Profile = styled.div`
     }
 
     strong {
-      font-size: 18px;
+      font-size: 16px;
       color: ${({ theme }) => theme.COLORS.GRAY_TEXT};
+      font-weight: 500;
     }
   }
 `;

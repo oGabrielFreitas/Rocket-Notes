@@ -42,7 +42,7 @@ export function PersonDetails({ name, idade, data_resposta, ...rest }) {
   return (
     <Container {...rest}>
       <div>
-        <h2>Paciente</h2>
+        <h2>Nome</h2>
         <span>{name}</span>
       </div>
       <div>

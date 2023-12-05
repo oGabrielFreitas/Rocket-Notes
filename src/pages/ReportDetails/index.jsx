@@ -10,6 +10,8 @@ import { AnswersTable } from '../../components/AnswersTable';
 import { PersonDetails } from '../../components/PersonDetails';
 import { ButtonText } from '../../components/ButtonText';
 import { ReportBarChart } from '../../components/Charts/ReportBarChart';
+import { ReportRadarChart } from '../../components/Charts/ReportRadarChart';
+import { RoundedDiv } from '../../components/RoundedDiv';
 
 function ReportsDetails() {
   //
@@ -42,18 +44,23 @@ function ReportsDetails() {
 
       <main>
         <Content>
-          <Section title="Detalhes">
+          <Section title="Detalhes do Paciente">
             <PersonDetails
               name={records.nome}
               idade={records.idade}
               data_resposta={records.data_criacao}
             />
-            <ButtonText title="Voltar" style={{ marginBottom: 20 }} />
+          </Section>
+          {/* <ButtonText title="Voltar" style={{ marginBottom: 20 }} /> */}
 
-            <Section title="Gráficos das Respostas">
+          <Section title="Gráficos das Respostas">
+            <RoundedDiv>
               <ReportBarChart data={records.pontuacao} />
-            </Section>
+              <ReportRadarChart data={records.pontuacao} />
+            </RoundedDiv>
+          </Section>
 
+          <Section title="Tabela de Respostas" style={{ marginBottom: 100 }}>
             <AnswersTable data={respostas} pending={pending}></AnswersTable>
           </Section>
         </Content>

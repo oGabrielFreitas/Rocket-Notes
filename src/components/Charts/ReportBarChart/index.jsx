@@ -64,8 +64,8 @@ export function ReportBarChart({ data, ...rest }) {
   // console.log(dataObject);
 
   return (
-    <div>
-      <ResponsiveContainer width="50%" height={500}>
+    <Container>
+      <ResponsiveContainer width="100%" height="100%">
         <BarChart
           width={500}
           height={500}
@@ -91,11 +91,11 @@ export function ReportBarChart({ data, ...rest }) {
             tickLine={false}
             angle={-70}
           />
-          <YAxis padding={{ top: 20, bottom: 20 }} />
+          <YAxis padding={{ top: 20, bottom: 20 }} stroke="#36248A" />
           <ReferenceLine y={0} stroke="#888" ifOverflow="extendDomain" />
           <LabelList dataKey="categoria" position="bottom" angle="90" />
         </BarChart>
       </ResponsiveContainer>
-    </div>
+    </Container>
   );
 }
