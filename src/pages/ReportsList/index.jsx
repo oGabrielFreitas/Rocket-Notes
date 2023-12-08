@@ -1,15 +1,14 @@
-import { Container, Content } from './styles';
-
 import { useEffect, useState } from 'react';
 import { api } from '../../services/api';
 
-import { Header } from '../../components/Header';
+import { Container, Content } from './styles';
+import { FaRectangleList } from 'react-icons/fa6';
 
+import { Header } from '../../components/Header';
 import { Button } from '../../components/Button';
 import { ButtonText } from '../../components/ButtonText';
 import { Section } from '../../components/Section';
-// import { Input } from '../../components/Input';
-import { ReportsTable } from '../../components/ReportsTable';
+import { ReportsTable } from '../../components/Tables/ReportsTable';
 
 function ReportsList() {
   // Seta a const, que vai receber os dados
@@ -32,16 +31,14 @@ function ReportsList() {
   return (
     <Container>
       <Header />
-
       <main>
         <Content>
-          <Section title="Relatórios cadastrados">
+          <Section icon={FaRectangleList} title="Lista de Respostas">
             <ReportsTable data={records}></ReportsTable>
           </Section>
 
-          <ButtonText title="Sair" />
-
-          <Button title="Voltar" />
+          {/* <ButtonText title="Sair" /> */}
+          {/* <Button title="Voltar" /> */}
         </Content>
       </main>
     </Container>

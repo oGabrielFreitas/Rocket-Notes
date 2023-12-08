@@ -50,7 +50,7 @@ export function PersonDetails({ name, idade, data_resposta, ...rest }) {
         <span>{idade}</span>
       </div>
       <div>
-        <h2>Data resposta</h2>
+        <h2>Data da resposta</h2>
         <span>{formattedDate}</span>
       </div>
     </Container>

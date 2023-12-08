@@ -79,7 +79,7 @@ export function ReportBarChart({ data, ...rest }) {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip fill="black" />
-          <Bar dataKey="pontuacao" fill="#00B0BF" barSize={30} />
+          <Bar dataKey="pontuacao" fill="#00B0BF77" barSize={30} />
           <XAxis
             dataKey="categoria"
             stroke="#36248A"

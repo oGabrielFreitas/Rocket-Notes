@@ -3,10 +3,12 @@ import { useEffect, useState } from 'react';
 import { api } from '../../services/api';
 import { Container, Content } from './styles';
 
+import { FaUser, FaChartSimple, FaRectangleList } from 'react-icons/fa6';
+
 import { Header } from '../../components/Header';
 import { Section } from '../../components/Section';
 // import { Input } from '../../components/Input';
-import { AnswersTable } from '../../components/AnswersTable';
+import { AnswersTable } from '../../components/Tables/AnswersTable';
 import { PersonDetails } from '../../components/PersonDetails';
 import { ButtonText } from '../../components/ButtonText';
 import { ReportBarChart } from '../../components/Charts/ReportBarChart';
@@ -24,7 +26,7 @@ function ReportsDetails() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await api.get('/api/reports/read/8');
+        const response = await api.get('/api/reports/read/9');
 
         response.data.respostas = JSON.parse(response.data.respostas);
 
@@ -44,7 +46,7 @@ function ReportsDetails() {
 
       <main>
         <Content>
-          <Section title="Detalhes do Paciente">
+          <Section icon={FaUser} title="Detalhes do Paciente">
             <PersonDetails
               name={records.nome}
               idade={records.idade}
@@ -52,15 +54,17 @@ function ReportsDetails() {
             />
           </Section>
           {/* <ButtonText title="Voltar" style={{ marginBottom: 20 }} /> */}
-
-          <Section title="Gráficos das Respostas">
+          <Section icon={FaChartSimple} title="Gráficos das Respostas">
             <RoundedDiv>
               <ReportBarChart data={records.pontuacao} />
               <ReportRadarChart data={records.pontuacao} />
             </RoundedDiv>
           </Section>
-
-          <Section title="Tabela de Respostas" style={{ marginBottom: 100 }}>
+          <Section
+            icon={FaRectangleList}
+            title="Tabela de Respostas"
+            style={{ marginBottom: 100 }}
+          >
             <AnswersTable data={respostas} pending={pending}></AnswersTable>
           </Section>
         </Content>

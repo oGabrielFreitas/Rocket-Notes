@@ -1,18 +1,35 @@
 import styled from 'styled-components';
 
-export const Container = styled.input`
-  margin: 20px 0;
+export const Container = styled.div`
+  width: 100%;
+  display: flex;
+  background-color: ${({ theme }) => theme.COLORS.WHITE};
+  color: ${({ theme }) => theme.COLORS.GRAY_TEXT};
 
-  > h2 {
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: ${({ theme }) => theme.COLORS.GRAY_100};
+  /* margin-bottom: 15px; */
+  border-radius: 10px;
 
-    padding-bottom: 5px;
-    margin-bottom: 24px;
+  justify-content: center;
+  align-items: center;
 
-    color: ${({ theme }) => theme.COLORS.PURPLE};
-    font-size: 20px;
-    font-weight: 500;
+  > input {
+    height: 50px;
+    width: 100%;
+
+    padding: 12px;
+
+    color: ${({ theme }) => theme.COLORS.GRAY_TEXT};
+    background: transparent;
+    border: 0;
+
+    &::placeholder {
+      color: ${({ theme }) => theme.COLORS.GRAY_100};
+    }
+  }
+
+  > svg {
+    margin-left: 16px;
+    color: ${({ theme }) => theme.COLORS.GRAY_100};
+    margin-bottom: 2px;
   }
 `;

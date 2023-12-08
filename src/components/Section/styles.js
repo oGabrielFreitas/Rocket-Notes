@@ -5,7 +5,9 @@ export const Container = styled.section`
   margin-top: 20px;
   margin-bottom: 40px;
 
-  > h2 {
+  .title-section-title {
+    display: flex;
+    align-items: baseline;
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: ${({ theme }) => theme.COLORS.GRAY_100};
@@ -13,8 +15,15 @@ export const Container = styled.section`
     padding-bottom: 5px;
     margin-bottom: 24px;
 
-    color: ${({ theme }) => theme.COLORS.PURPLE};
-    font-size: 20px;
-    font-weight: 500;
+    > h2 {
+      color: ${({ theme }) => theme.COLORS.PURPLE};
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    > svg {
+      color: ${({ theme }) => theme.COLORS.PURPLE};
+      margin-right: 8px;
+    }
   }
 `;

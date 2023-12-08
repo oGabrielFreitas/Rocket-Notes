@@ -9,6 +9,7 @@ import {
   PolarAngleAxis,
   PolarRadiusAxis,
   ResponsiveContainer,
+  Tooltip,
 } from 'recharts';
 
 const data_base = [
@@ -71,10 +72,11 @@ export function ReportRadarChart({ data, ...rest }) {
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart cx="50s%" cy="50%" outerRadius="80%" data={dataFinal}>
           <PolarGrid />
+          <Tooltip />
           <PolarAngleAxis dataKey="categoria" />
           <PolarRadiusAxis />
           <Radar
-            name="Mike"
+            name="Radar Chart"
             dataKey="pontuacao"
             stroke="#3F2F75"
             fill="#36248A"
