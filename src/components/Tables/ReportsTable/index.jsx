@@ -1,14 +1,19 @@
 import DataTable from 'react-data-table-component';
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
+import { dataFormater } from '../../../helpers/formatData';
 
 import { Container } from './styles';
 
 import { Input } from '../../Input';
 import { ButtonText } from '../../ButtonText';
+import { Button } from '../../Button';
 
 import { FiSearch } from 'react-icons/fi';
+import { RiErrorWarningFill } from 'react-icons/ri';
 
-const FilterComponent = ({ filterText, onFilter, onClear }) => {
+// COMPONENTES AUXILIARES
+
+const _filtercomponent = ({ filterText, onFilter, onClear }) => {
   return (
     <div
       style={{
@@ -30,10 +35,12 @@ const FilterComponent = ({ filterText, onFilter, onClear }) => {
   );
 };
 
+// COMPONENTE PRINCIPAL
 export function ReportsTable({ data, ...rest }) {
   // DEFINIÇÕES DO REACT-DATA-TABLE
   const columns = [
     {
+      id: 'ids',
       name: 'ID',
       selector: row => row.id,
       maxWidth: '100px',
@@ -44,19 +51,26 @@ export function ReportsTable({ data, ...rest }) {
       selector: row => row.nome,
       sortable: true,
 
-      maxWidth: '300px',
+      maxWidth: '400px',
     },
     {
       name: 'Idade',
       selector: row => row.idade,
       sortable: true,
-      maxWidth: '100px',
+      maxWidth: '150px',
     },
     {
       id: 'data_resposta',
       name: 'Data Resposta',
       selector: row => row.data_criacao,
+      format: row => dataFormater(row.data_criacao),
       sortable: true,
+    },
+    {
+      id: 'table_action',
+      name: 'Ação',
+      maxWidth: '120px',
+      cell: row => <ButtonText title={'Ver'} onClick={() => alert(row.id)} />,
     },
   ];
 
@@ -77,7 +91,7 @@ export function ReportsTable({ data, ...rest }) {
 
   return (
     <div>
-      <FilterComponent
+      <_filtercomponent
         onFilter={e => setFilterText(e.target.value)}
         onClear={handleClear}
         filterText={filterText}
