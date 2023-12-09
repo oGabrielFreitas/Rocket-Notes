@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react';
-
 import { api } from '../../services/api';
-import { Container, Content } from './styles';
-
 import { FaUser, FaChartSimple, FaRectangleList } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
+import { Container, Content } from './styles';
 import { Header } from '../../components/Header';
 import { Section } from '../../components/Section';
-// import { Input } from '../../components/Input';
 import { AnswersTable } from '../../components/Tables/AnswersTable';
 import { PersonDetails } from '../../components/PersonDetails';
-import { ButtonText } from '../../components/ButtonText';
 import { ReportBarChart } from '../../components/Charts/ReportBarChart';
 import { ReportRadarChart } from '../../components/Charts/ReportRadarChart';
 import { RoundedDiv } from '../../components/RoundedDiv';
@@ -22,11 +20,13 @@ function ReportsDetails() {
   const [respostas, setRespostas] = useState([]);
   const [pending, setPending] = useState(true);
 
+  const params = useParams();
+
   // Busca os dados na api de maneira assincrona apenas 1x no carregamento
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await api.get('/api/reports/read/9');
+        const response = await api.get(`/api/reports/read/${params.id}`);
 
         response.data.respostas = JSON.parse(response.data.respostas);
 
@@ -38,7 +38,7 @@ function ReportsDetails() {
       }
     };
     fetchData();
-  }, []); // Array de dependências vazio para executar apenas na montagem
+  }, [params.id]); // Array de dependências vazio para executar apenas na montagem
 
   return (
     <Container>
@@ -46,12 +46,18 @@ function ReportsDetails() {
 
       <main>
         <Content>
-          <Section icon={FaUser} title="Detalhes do Paciente">
+          <Section
+            icon={FaUser}
+            title="Detalhes do Paciente"
+            style={{ marginBottom: '0px' }}
+          >
             <PersonDetails
               name={records.nome}
               idade={records.idade}
               data_resposta={records.data_criacao}
+              email={records.email}
             />
+            <Link to="/">Voltar</Link>
           </Section>
           {/* <ButtonText title="Voltar" style={{ marginBottom: 20 }} /> */}
           <Section icon={FaChartSimple} title="Gráficos das Respostas">

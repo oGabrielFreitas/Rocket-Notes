@@ -1,18 +1,19 @@
 import DataTable from 'react-data-table-component';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { dataFormater } from '../../../helpers/formatData';
 
 import { Container } from './styles';
 
 import { Input } from '../../Input';
 import { ButtonText } from '../../ButtonText';
-import { Button } from '../../Button';
 
 import { FiSearch } from 'react-icons/fi';
-import { RiErrorWarningFill } from 'react-icons/ri';
+
+// --------------------------------------------------------------------------
 
 // COMPONENTES AUXILIARES
-
+// Caixa de pesquisa
 const _filtercomponent = ({ filterText, onFilter, onClear }) => {
   return (
     <div
@@ -34,6 +35,8 @@ const _filtercomponent = ({ filterText, onFilter, onClear }) => {
     </div>
   );
 };
+
+// --------------------------------------------------------------------------
 
 // COMPONENTE PRINCIPAL
 export function ReportsTable({ data, ...rest }) {
@@ -65,16 +68,24 @@ export function ReportsTable({ data, ...rest }) {
       selector: row => row.data_criacao,
       format: row => dataFormater(row.data_criacao),
       sortable: true,
+      maxWidth: '200px',
+    },
+    {
+      name: 'Email',
+      selector: row => row.email,
+      sortable: true,
     },
     {
       id: 'table_action',
       name: 'Ação',
       maxWidth: '120px',
-      cell: row => <ButtonText title={'Ver'} onClick={() => alert(row.id)} />,
+      cell: row => (
+        <ButtonText title={'Ver'} onClick={() => handleReportOpen(row.id)} />
+      ),
     },
   ];
 
-  // FUNÇÃO DE PESQUISA DE PESQUISA
+  // FUNÇÃO DE PESQUISA POR NOME
   const [filterText, setFilterText] = useState('');
   const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
   const filteredItems = data.filter(
@@ -82,11 +93,18 @@ export function ReportsTable({ data, ...rest }) {
       data.nome && data.nome.toLowerCase().includes(filterText.toLowerCase()),
   );
 
+  // Função de limpar caixa de pesquisa
   const handleClear = () => {
     if (filterText) {
       setResetPaginationToggle(!resetPaginationToggle);
       setFilterText('');
     }
+  };
+
+  // FUNÇÃO DE ABRIR RELATÓRIO
+  const navigate = useNavigate();
+  const handleReportOpen = id => {
+    navigate(`/detalhes/${id}`);
   };
 
   return (
@@ -109,10 +127,10 @@ export function ReportsTable({ data, ...rest }) {
           defaultSortAsc={false}
           pagination
           paginationResetDefaultPage={resetPaginationToggle} // optionally, a hook to reset pagination to page 1
+          persistTableHead
           // subHeader
           // subHeaderComponent={subHeaderComponentMemo}
           // selectableRows
-          persistTableHead
           // paginationPerPage={5}
         />
       </Container>

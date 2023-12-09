@@ -2,9 +2,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin: 20px 0 20px 0;
+  margin: 20px 0 5px 0;
   background-color: ${({ theme }) => theme.COLORS.WHITE};
-  padding: 20px;
+  padding: 20px 40px;
   border-radius: 10px;
 
   border-top: 3px solid ${({ theme }) => theme.COLORS.PURPLE};
@@ -18,6 +18,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     row-gap: 10px;
+    /* justify-content: center; */
   }
 
   > table {

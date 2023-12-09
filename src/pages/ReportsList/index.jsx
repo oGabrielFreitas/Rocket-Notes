@@ -5,8 +5,6 @@ import { Container, Content } from './styles';
 import { FaRectangleList } from 'react-icons/fa6';
 
 import { Header } from '../../components/Header';
-import { Button } from '../../components/Button';
-import { ButtonText } from '../../components/ButtonText';
 import { Section } from '../../components/Section';
 import { ReportsTable } from '../../components/Tables/ReportsTable';
 
@@ -36,9 +34,6 @@ function ReportsList() {
           <Section icon={FaRectangleList} title="Lista de Respostas">
             <ReportsTable data={records}></ReportsTable>
           </Section>
-
-          {/* <ButtonText title="Sair" /> */}
-          {/* <Button title="Voltar" /> */}
         </Content>
       </main>
     </Container>
